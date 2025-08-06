@@ -1,0 +1,12 @@
+/home/diogodam/Jogos/FlyEngine/bin/Debug/net8.0/FlyEngine.deps.json
+/home/diogodam/Jogos/FlyEngine/bin/Debug/net8.0/FlyEngine.dll
+/home/diogodam/Jogos/FlyEngine/bin/Debug/net8.0/FlyEngine.pdb
+/home/diogodam/Jogos/FlyEngine/obj/Debug/net8.0/FlyEngine.csproj.AssemblyReference.cache
+/home/diogodam/Jogos/FlyEngine/obj/Debug/net8.0/FlyEngine.GeneratedMSBuildEditorConfig.editorconfig
+/home/diogodam/Jogos/FlyEngine/obj/Debug/net8.0/FlyEngine.AssemblyInfoInputs.cache
+/home/diogodam/Jogos/FlyEngine/obj/Debug/net8.0/FlyEngine.AssemblyInfo.cs
+/home/diogodam/Jogos/FlyEngine/obj/Debug/net8.0/FlyEngine.csproj.CoreCompileInputs.cache
+/home/diogodam/Jogos/FlyEngine/obj/Debug/net8.0/FlyEngine.dll
+/home/diogodam/Jogos/FlyEngine/obj/Debug/net8.0/refint/FlyEngine.dll
+/home/diogodam/Jogos/FlyEngine/obj/Debug/net8.0/FlyEngine.pdb
+/home/diogodam/Jogos/FlyEngine/obj/Debug/net8.0/ref/FlyEngine.dll
