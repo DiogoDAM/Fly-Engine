@@ -13,8 +13,8 @@ public class Sprite
 	public SpriteEffects Flip = SpriteEffects.None;
 	public Color Color = Color.White;
 
-	public int Width { get { return Region.Width; } set { Region.Width = value; } }
-	public int Height { get { return Region.Height; } set { Region.Height = value; } }
+	public int Width { get { return Region.SourceRectangle.Width; } set { Region.SourceRectangle.Width = value; } }
+	public int Height { get { return Region.SourceRectangle.Height; } set { Region.SourceRectangle.Height = value; } }
 
 	public Sprite() { }
 

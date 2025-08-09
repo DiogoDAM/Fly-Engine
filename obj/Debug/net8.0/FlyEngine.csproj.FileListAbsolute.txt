@@ -10,3 +10,4 @@
 /home/diogodam/Jogos/FlyEngine/obj/Debug/net8.0/refint/FlyEngine.dll
 /home/diogodam/Jogos/FlyEngine/obj/Debug/net8.0/FlyEngine.pdb
 /home/diogodam/Jogos/FlyEngine/obj/Debug/net8.0/ref/FlyEngine.dll
+/home/diogodam/Jogos/FlyEngine/obj/Debug/net8.0/FlyEngine.sourcelink.json

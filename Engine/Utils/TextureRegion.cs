@@ -1,22 +1,29 @@
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace FlyEngine;
 
 public class TextureRegion
 {
-	public int X { get { return SourceRectangle.X; } set { SourceRectangle.X = value; } }
-	public int Y { get { return SourceRectangle.Y; } set { SourceRectangle.Y = value; } }
-	public int Width{ get { return SourceRectangle.Width; } set { SourceRectangle.Width = value; } }
-	public int Height{ get { return SourceRectangle.Height; } set { SourceRectangle.Height = value; } }
-	public Texture2D Texture;
 	public Rectangle SourceRectangle;
+	public Texture2D Texture;
 
-	public TextureRegion() {}
+	public TextureRegion() { }
 
-	public TextureRegion(Texture2D texture, int x, int y, int w, int h)
+	public TextureRegion(Texture2D texture, int x, int y, int width, int height)
 	{
-		SourceRectangle = new Rectangle(x, y, w, h);
 		Texture = texture;
+		SourceRectangle = new Rectangle(x, y, width, height);
+	}
+
+	public TextureRegion(Texture2D texture, Rectangle rect)
+	{
+		Texture = texture;
+		SourceRectangle = rect;
+	}
+
+	public void Draw(Vector2 pos, Color color)
+	{
+		FlyGame.SpriteBatch.Draw(Texture, pos, SourceRectangle, color);
 	}
 }

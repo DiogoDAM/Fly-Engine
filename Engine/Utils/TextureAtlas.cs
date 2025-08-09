@@ -1,9 +1,7 @@
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 using System.Collections.Generic;
-using System.Xml;
 using System.IO;
 using System.Xml.Linq;
 
@@ -12,6 +10,7 @@ namespace FlyEngine;
 public class TextureAtlas
 {
 	private Dictionary<string, TextureRegion> _regions;
+	private Dictionary<string, TextureSheet> _sheets;
 
 	public Texture2D Texture;
 
@@ -19,6 +18,7 @@ public class TextureAtlas
 	{
 		Texture = texture;
 		_regions = new();
+		_sheets = new();
 	}
 
 	public void AddRegion(string name, int x, int y, int w, int h)
@@ -26,11 +26,23 @@ public class TextureAtlas
 		_regions.Add(name, new TextureRegion(Texture, x, y, w, h));
 	}
 
+	public void AddSheet(string name, int x, int y, int sourceWidth, int sourceHeight, int totalWidth, int totalHeight)
+	{
+		_sheets.Add(name, new TextureSheet(Texture, x, y, sourceWidth, sourceHeight, totalWidth, totalHeight));
+	}
+
 	public TextureRegion GetRegion(string name)
 	{
-		if(!_regions.ContainsKey(name)) throw new KeyNotFoundException($"FlyEngine :: TextureAtlas.GetRegion() atlas don't have the key: {name}");
+		if(!_regions.ContainsKey(name)) throw new KeyNotFoundException($"FlyEngine :: TextureAtlas.GetRegion() atlas don't have the key: {name} for TextureRegion");
 
 		return _regions[name];
+	}
+
+	public TextureSheet GetSheet(string name)
+	{
+		if(!_sheets.ContainsKey(name)) throw new KeyNotFoundException($"FlyEngine :: TextureAtlas.GetSheet() atlas don't have the key: {name} for a TextureSheet");
+
+		return _sheets[name];
 	}
 
 	public Sprite CreateSprite(string name)
@@ -64,6 +76,24 @@ public class TextureAtlas
 						int.Parse(region.Attribute("y")? .Value ?? "0"),
 						int.Parse(region.Attribute("width")?.Value ?? "0"),
 						int.Parse(region.Attribute("height")?.Value ?? "0")
+						);
+			}
+		}
+
+		var spriteSheets = root.Element("TextureSheets").Elements("TextureSheet");
+
+		if(spriteSheets != null)
+		{
+			foreach(var spriteSheet in spriteSheets)
+			{
+				atlas.AddSheet(
+						spriteSheet.Attribute("name")?.Value,
+						int.Parse(spriteSheet.Attribute("x")?.Value ?? "0"),
+						int.Parse(spriteSheet.Attribute("y")?.Value ?? "0"),
+						int.Parse(spriteSheet.Attribute("source-width")?.Value ?? "0"),
+						int.Parse(spriteSheet.Attribute("source-height")?.Value ?? "0"),
+						int.Parse(spriteSheet.Attribute("total-width")?.Value ?? "0"),
+						int.Parse(spriteSheet.Attribute("total-height")?.Value ?? "0")
 						);
 			}
 		}
